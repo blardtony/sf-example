@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon blog{% endblock %}
+
+{% block stylesheets %}
+  <style>
+    .image-article {
+      width: 30rem;
+      margin: auto;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="text-center">Le blog de l'année</h1>
+      {% for article in articles %}
+          <div class="card mt-5">
+            <h3 class="card-title text-center">{{article.title}}</h3>
+            {% if article.image %}
+              <img class="image-article" src="{{article.image}}" alt="">
+            {% endif %}
+            <div class="card-body">
+              <p class="card-text">{{article.content}}</p>
+            </div>
+            <div class="card-footer">
+              <p class="card-text text-center"><small class="text-muted">{{ article.date.format('d/m/Y') }}</small></p>
+            </div>
+          </div>
+      {% endfor %}
+  </div>
+{% endblock %}
