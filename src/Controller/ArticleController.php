@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -42,6 +42,7 @@ class ArticleController extends AbstractController
       $em->persist($article);
       $em->flush();
       dump($form);
+      return $this->redirectToRoute('home');
     }
 
     return $this->render('article/create.html.twig', [
