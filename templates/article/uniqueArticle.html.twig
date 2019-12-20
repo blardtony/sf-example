@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <style>
+  img {
+    width: 100%
+  }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="text-center">Le blog de l'année</h1>
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-4">
+          {% if article.image %}
+            <img class="image-article" src="{{article.image}}" alt="">
+          {% endif %}
+        </div>
+        <div class="col-lg-8 col-md-8">
+          <h3 class="title">{{article.title}}</h3>
+          <p class=""><small class="text-muted">Fait le {{ article.date.format('d/m/Y') }}</small></p>
+          <p class="">{{article.content}}</p>
+        </div>
+      </div>
+  </div>
+{% endblock %}

@@ -23,7 +23,7 @@
               <h3 class="title">{{article.title}}</h3>
               <p class=""><small class="text-muted">Fait le {{ article.date.format('d/m/Y') }}</small></p>
               <p class="">{{article.content}}</p>
-
+              <a class="btn btn-primary" href="{{path('article_view', {id: article.id})}}" role="button">Lien vers l'article</a>
             </div>
           </div>
       {% endfor %}
