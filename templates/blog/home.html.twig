@@ -12,6 +12,9 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     }
+    .btn {
+      border-radius: 15px;
+    }
   </style>
 {% endblock %}
 
@@ -29,7 +32,7 @@
               <h3 class="title">{{article.title}}</h3>
               <p class=""><small class="text-muted">Fait le {{ article.date.format('d/m/Y') }}</small></p>
               <p class="">{{article.content}}</p>
-              <a class="btn btn-primary" href="{{path('article_view', {id: article.id})}}" role="button">Lire la suite</a>
+              <a class="btn btn-info btn-block" href="{{path('article_view', {id: article.id})}}" role="button">Lire la suite</a>
             </div>
           </div>
       {% endfor %}
